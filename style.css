@@ -1,0 +1,378 @@
+@import url('https://fonts.cdnfonts.com/css/ica-rubrik-black');
+@import url('https://fonts.cdnfonts.com/css/poppins');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background-color: black; /* Moved background color to body */
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: 80px;
+  padding: 0 5%;
+  color: #000011;
+  font-size: 18px;
+  background: rgba(0, 0, 0, 0.3); /* Transparent black background */
+}
+
+header .logo {
+  text-transform: uppercase;
+  color: whitesmoke;
+  font-size: 2.5rem;
+  margin-right: auto;
+  font-weight: 700;
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+}
+
+header nav .menu {
+  display: flex;
+  align-items: center;
+}
+
+header nav .menu li:last-child a {
+  background-color: gold; /* Set background color to yellow */
+  color: black; /* Set initial text color to black */
+  padding: 10px 20px; /* Add padding to make it look like a button */
+  border-radius: 5px; /* Slightly rounded corners */
+  font-weight: bold; /* Make the font bold */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+header nav .menu li:last-child a:hover {
+  background-color: black; /* Change background to black on hover */
+  color: gold; /* Change text color to yellow on hover */
+}
+
+header nav .menu li a {
+  position: relative;
+  color: whitesmoke;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-left: 40px;
+  border-radius: 0.4rem;
+  transition: color 0.4s ease;
+}
+
+header nav .menu li a:hover {
+  color: gold;
+}
+
+.home {
+  text-align: center;
+  position: relative;
+  min-height: 420px;
+  overflow: hidden;
+}
+
+.home::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: taxiCycle 9s infinite; /* Apply the animation */
+}
+
+@keyframes taxiCycle {
+  0%, 20% {
+    background-image: url('taxi.jpg');
+    opacity: 0.4;
+    filter: blur(0px); /* Image fully visible */
+  }
+  25%, 33% {
+    opacity: 0;
+    filter: blur(5px); /* Image fades and blurs out */
+  }
+  33%, 54% {
+    background-image: url('taxi2.jpg');
+    opacity: 0.4;
+    filter: blur(0px); /* Next image appears fully visible */
+  }
+  59%, 66% {
+    opacity: 0;
+    filter: blur(5px); /* Next image fades and blurs out */
+  }
+  66%, 87% {
+    background-image: url('taxi3.jpg');
+    opacity: 0.4;
+    filter: blur(0px); /* Third image appears fully visible */
+  }
+  92%, 100% {
+    opacity: 0;
+    filter: blur(5px); /* Third image fades and blurs out */
+  }
+  100%, 0% {
+    background-image: url('taxi.jpg');
+    opacity: 0.4;
+    filter: blur(0px); /* Image revisible */
+  }
+}
+
+.home h1 {
+  font-size: 3rem;
+  font-weight: 1000;
+  top: 130px;
+  right: -25%;
+  transform: translate(-50%, -50%); /* Center the element */
+  color: gold;
+  position: relative;
+  font-family: initial;
+}
+
+.home h1::first-letter {
+  font-size: 200%; /* Increase the font size of the first letter */
+}
+
+.home h2 {
+  font-size: 3rem;
+  font-weight: 1000;
+  top: 50px;
+  left: 15%;
+  transform: translate(-50%, -50%); /* Center the element */  
+  color: whitesmoke;
+  position: absolute;
+  font-family: initial;
+}
+
+.home h2::first-letter {
+  font-size: 200%; /* Increase the font size of the first letter */
+}
+
+.about-section {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: white; /* Ensure white background */
+  color: black; /* Set text color to black for visibility */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for separation */
+  border-radius: 10px; /* Optional rounded edges */
+  margin: 20px auto; /* Center the section horizontally and add spacing */
+  width: 90%; /* Adjust width to fit the design */
+}
+
+.about-section h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: gold;
+}
+
+.about-section .card-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.about-section .card {
+  background-color: white;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced box shadow */
+  border-radius: 8px;
+  overflow: hidden;
+  width: 300px;
+  transition: transform 0.3s;
+  padding: 20px; /* Add padding to the card */
+}
+
+.about-section .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+.about-section .card img {
+  width: calc(100% - 60px); /* Adjust width to account for padding */
+  height: 200px;
+  object-fit: cover;
+  margin: 0 20px; /* Add margin to fit within the card padding */
+}
+
+.about-section .card-content {
+  padding: 20px;
+  text-align: left;
+}
+
+.about-section .card-content h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.about-section .card-content p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.about-section .card-content a {
+  color: #007BFF;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.about-section .card-content a:hover {
+  text-decoration: underline;
+}
+
+/* Taxi Model Section */
+.taxi-model {
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.taxi-model .slider {
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    top: 10%;
+    left: calc(50% - 100px);
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    animation: autoRunTaxi 20s linear infinite;
+    z-index: -1;
+}
+
+@keyframes autoRunTaxi {
+    from {
+        transform: perspective(1000px) rotateX(-16deg) rotateY(0deg);
+    }
+    to {
+        transform: perspective(1000px) rotateX(-16deg) rotateY(360deg);
+    }
+}
+
+.taxi-model .slider .item {
+    position: absolute;
+    inset: 0 0 0 0;
+    transform: 
+        rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+        translateZ(550px);
+}
+
+.taxi-model .slider .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.taxi-model .content {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1400px, 100vw);
+    height: max-content;
+    padding-bottom: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+
+.taxi-model .content h1 {
+    font-family: 'ICA Rubrik';
+    font-size: 16em;
+    line-height: 1em;
+    color: #25283B;
+    position: relative;
+}
+
+.taxi-model .content h1::after {
+    position: absolute;
+    inset: 0 0 0 0;
+    content: attr(data-content);
+    z-index: 2;
+    -webkit-text-stroke: 2px #d2d2d2;
+    color: transparent;
+}
+
+.taxi-model .content .author {
+    font-family: Poppins;
+    text-align: right;
+    max-width: 200px;
+}
+
+.taxi-model .content h2 {
+    font-size: 3em;
+}
+
+.taxi-model .content .model {
+    background-image: url(images/model.png);
+    width: 100%;
+    height: 75vh;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-size: auto 130%;
+    background-repeat: no-repeat;
+    background-position: top center;
+    z-index: 1;
+}
+
+@media screen and (max-width: 1023px) {
+    .taxi-model .slider {
+        width: 160px;
+        height: 200px;
+        left: calc(50% - 80px);
+    }
+    .taxi-model .slider .item {
+        transform: 
+            rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+            translateZ(300px);
+    }
+    .taxi-model .content h1 {
+        text-align: center;
+        width: 100%;
+        text-shadow: 0 10px 20px #000;
+        font-size: 7em;
+    }
+    .taxi-model .content .author {
+        color: #fff;
+        padding: 20px;
+        text-shadow: 0 10px 20px #000;
+        z-index: 2;
+        max-width: unset;
+        width: 100%;
+        text-align: center;
+        padding: 0 30px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .taxi-model .slider {
+        width: 100px;
+        height: 150px;
+        left: calc(50% - 50px);
+    }
+    .taxi-model .slider .item {
+        transform: 
+            rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+            translateZ(180px);
+    }
+    .taxi-model .content h1 {
+        font-size: 5em;
+    }
+}
