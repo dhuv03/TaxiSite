@@ -18,6 +18,7 @@ body {
 }
 
 header {
+
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -39,7 +40,9 @@ header .logo {
 
 header nav {
   display: flex;
-  align-items: center;
+  align-items: center; 
+  position: sticky;
+  top: 0;
 }
 
 header nav .menu {
@@ -56,10 +59,30 @@ header nav .menu li:last-child a {
   transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
 }
 
-header nav .menu li:last-child a:hover {
+header nav .menu li:last-child a:hover,
+header nav .menu li:last-child a:focus {
   background-color: black; /* Change background to black on hover */
   color: gold; /* Change text color to yellow on hover */
 }
+
+header nav .menu li:last-child a::after {
+  content: '';
+  height: 3px;
+  width: 100%;
+  background: whitesmoke; /* Change background to white on hover */
+  position: absolute;
+  bottom: 0;
+  left: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+header nav .menu li:last-child a:hover::after,
+header nav .menu li:last-child a:focus::after {
+  opacity: 1;
+  transition: opacity 0.3s ease; /* Smooth transition */
+}
+
 
 header nav .menu li a {
   position: relative;
@@ -71,8 +94,27 @@ header nav .menu li a {
   transition: color 0.4s ease;
 }
 
-header nav .menu li a:hover {
+header nav .menu li a:hover,
+header nav .menu li a:focus {
   color: gold;
+}
+
+header nav .menu li a::after {
+  content: '';
+  height: 3px;
+  width: 100%;
+  background: whitesmoke; /* Change background to white on hover */
+  position: absolute;
+  bottom: -8px;
+  left: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+header nav .menu li a:hover::after,
+header nav .menu li a:focus::after {
+  opacity: 1;
+  transition: opacity 0.3s ease; /* Smooth transition */
 }
 
 .home {
@@ -177,6 +219,11 @@ header nav .menu li a:hover {
   color: gold;
 }
 
+.about-section p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: black;
+}
 .about-section .card-container {
   display: flex;
   justify-content: center;
