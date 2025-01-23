@@ -11,34 +11,41 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/scrollreveal"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="index.js"></script>
 
     <title>Index</title>
 </head>
 <body>
-    <header>
+    <header id="header">
         <div class="logo">
             Logo
         </div>
         <nav>
             <ul class="menu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About Us</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
                 <li><a href="#">Book A Ride</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="#contact">Contact Us</a></li>
                 <li><a href="#">Login</a></li>
             </ul>
         </nav>
     </header>
-    <section class="home">
+    <hr color="gold">
+
+    <!--home section-->
+
+    <section class="home" id="home">
         <h2>Your <span style="color: gold;">Dream</span> Ride,</h2>
         <h3>Just a <span style="border-bottom: 4px solid gold;">Phone Call</span> Away</h3>
         
         <p> <b>Ready.</b>  <span style="border-bottom: 4px solid gold;">Set.</span> <span style="color: gold;">Go!</span> </p>
-        <div></div>
         <button type="button">Book Now</button>
     </section>
+
+    <!--sec01 section-->
+
     <section class="sec-01" id="about"> 
-        <h2 class="main-title"> About us </h2>
+        <h2 class="main-title"> <span style="border-bottom: 4px solid gold;">About us</span> </h2>
         <div class="container">
             <div class="content">
                 <div class="image">
@@ -53,12 +60,15 @@
                         aspernatur aliquam itaque quae est officia totam dolore odio?</p>
                 </div>
     </section>
-    <section class="sec-02" id="about"> 
+
+    <!--sec01 section-->
+
+    <section class="sec-02" id="sec-02"> 
         <div class="containr">
             <!-- <h2 class="main-title"> About us</h2> -->
             <div class="contnt">
                 <div class="image">
-                    <img src="peakpx (2).jpg">
+                    <img src="rain1.jpg">
                 </div>
                 <div class="textbox">
                     <h3>Lorem ipsum</h3>
@@ -69,7 +79,12 @@
                         aspernatur aliquam itaque quae est officia totam dolore odio?</p>
                 </div>
     </section>
+    <h3 class="main-title" id="why Us?"> <span style="border-bottom: 4px solid gold;">Why Us?</span> </h3>
+
+    <!--about-section section-->
+
     <section class="about-section">
+
         <h2>REASONS TO CHOOSE US</h2>
         <p>There are many reasons to choose us. Here are some of the reasons why you should choose us.</p>
         <div class="card-container">
@@ -101,9 +116,12 @@
             </div>
         </div>
     </section>
-        <section class="taxi-model">
-            <h2>OUR TAXI MODELS</h2>
-            <div class="slider" style="--quantity: 10">
+    <h3 class="main-title" id="Models"> <span style="border-bottom: 4px solid gold;">Taxi Models</span> </h3>
+
+    <!--taxi-model section-->
+    <section class="taxi-model">
+
+        <div class="slider" style="--quantity: 10">
             <div class="item" style="--position: 1"><img src="1.jpg" alt=""></div>
             <div class="item" style="--position: 2"><img src="2.jpg" alt=""></div>
             <div class="item" style="--position: 3"><img src="3.jpg" alt=""></div>
@@ -114,14 +132,13 @@
             <div class="item" style="--position: 8"><img src="2.jpg" alt=""></div>
             <div class="item" style="--position: 9"><img src="3.jpg" alt=""></div>
             <div class="item" style="--position: 10"><img src="1.jpg" alt=""></div>
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- footer part -->
+    <!-- footer part -->
 
-
-        <h3 class="main-title" id="contact"> Contact </h3>
-        <footer class="footer-distributed">
+    <h3 class="main-title" id="contact"> <span style="border-bottom: 4px solid gold;">Contact</span> </h3>
+    <footer class="footer-distributed">
 
         <div class="footer-left">
             LOGO
@@ -129,11 +146,11 @@
 
 
             <p class="footer-links">
-              <a href="#">Home</a>
+              <a href="#header">Home</a>
               |
-              <a href="#">About Us</a>
+              <a href="#about">About Us</a>
               |
-              <a href="#">Contact</a>
+              <a href="#contact">Contact</a>
               |
               <a href="#">Blog</a>
             </p>
@@ -160,7 +177,7 @@
             <p class="company-footer-about">
                 <p class="footer-company-about">
                 <span>About the company</span>
-                <strong>TAXI-CON</strong> is a tech channel on instagram
+                <strong>TAXI-CON</strong> is a channel on instagram
             </p>
         </div>
 
@@ -174,12 +191,15 @@
             </div>
         </div>
         <hr color="black">
-        <br>
-        <br>
        <div class="company-right">
         <p class="footer-company-rights">Copyright © 2024 <strong>Dhruv Rai</strong> All rights reserved</p>
-       </div>
+        <a class="gotopbtn" href="#"><i class="fa-solid fa-arrow-up"></i></a>
+    </div>
         </footer>
+
+    <button class="gotopbtn" onclick="scrollToTop()">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
 
     <!-- js effect at here -->
 
@@ -201,5 +221,6 @@
         ScrollReveal().reveal('.main-title' , { delay: 300  , origin: 'left' , interval: 200 });
         ScrollReveal().reveal('.taxi-model .slider .item' , { delay: 500  , origin: 'top' });
     </script>
+
 </body>
 </html>
