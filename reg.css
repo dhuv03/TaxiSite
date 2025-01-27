@@ -1,92 +1,476 @@
-* { 
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    list-style: none;
-    font-family: "Poppins", sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background-color: black; /* Moved background color to body */
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: 80px;
+  padding: 0 5%;
+  color: #000011;
+  font-size: 18px;
+  background: rgba(0, 0, 0, 0.3); /* Transparent black background */
+}
+
+header .logo {
+  text-transform: uppercase;
+  color: whitesmoke;
+  font-size: 2.5rem;
+  margin-right: auto;
+  font-weight: 700;
+}
+
+header nav {
+  display: flex;
+  align-items: center; 
+}
+
+header nav .menu {
+  display: flex;
+  align-items: center;
+}
+
+header nav .menu li:last-child a {
+  background-color: gold; /* Set background color to yellow */
+  color: black; /* Set initial text color to black */
+  padding: 10px 20px; /* Add padding to make it look like a button */
+  border-radius: 5px; /* Slightly rounded corners */
+  font-weight: bold; /* Make the font bold */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+header nav .menu li:last-child a:hover,
+header nav .menu li:last-child a:focus {
+  background-color: rgba(255, 255, 255, 0.3);;
+  background-color: rgba(255, 215, 0, 0.3); /* Goldish glass effect */
+  backdrop-filter: blur(10px); /* Apply blur for glass effect */
+  color: gold;
+  border: 1px solid gold;
+}
+
+header nav .menu li:last-child a::after {
+  content: '';
+  height: 3px;
+  width: 100%;
+  background: none; /* Change background to  on hover */
+  position: absolute;
+  bottom: 0;
+  left: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+header nav .menu li:last-child a:hover::after,
+header nav .menu li:last-child a:focus::after {
+  opacity: 1;
+  transition: opacity 0.3s ease; /* Smooth transition */
+}
+
+
+header nav .menu li a {
+  position: relative;
+  color: whitesmoke;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-left: 40px;
+  border-radius: 0.4rem;
+  transition: color 0.4s ease;
+}
+
+header nav .menu li a:hover,
+header nav .menu li a:focus {
+  color: gold;
+}
+
+header nav .menu li a::after {
+  content: '';
+  height: 3px;
+  width: 100%;
+  background: whitesmoke; /* Change background to white on hover */
+  position: absolute;
+  bottom: -8px;
+  left: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+header nav .menu li a:hover::after,
+header nav .menu li a:focus::after {
+  opacity: 1;
+  transition: opacity 0.3s ease; /* Smooth transition */
+}
+
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  min-height: 650px;
+  overflow: hidden;
+}
+
+.home::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: taxiCycle 9s infinite; /* Apply the animation */
+}
+
+@keyframes taxiCycle {
+  0%, 20% {
+    background-image: url('taxi.jpg');
+    opacity: 0.4;
+    filter: blur(0px); /* Image fully visible */
   }
-  
-  body {
-    background-image: url('Register.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    min-height: 100vh;
-    margin: 0;
+  25%, 33% {
+    opacity: 0;
+    filter: blur(5px); /* Image fades and blurs out */
   }
-  
-  .container {
-    display: flex;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
+  33%, 54% {
+    background-image: url('taxi2.jpg');
+    opacity: 0.4;
+    filter: blur(0px); /* Next image appears fully visible */
   }
-  
-  .content-area {
-    width: 50%;
-    color: #fff;
-    margin-right: auto;
-    padding: 20px;
+  59%, 66% {
+    opacity: 0;
+    filter: blur(5px); /* Next image fades and blurs out */
   }
-  
-  .form-container {
-    width: 30%;
-    padding: 23px;
-    margin-left: auto;
-    color: whitesmoke;
-    border-radius: 10px;
+  66%, 87% {
+    background-image: url('taxi3.jpg');
+    opacity: 0.4;
+    filter: blur(0px); /* Third image appears fully visible */
   }
-  
-  h1 {
-    text-align: center;
-    font-size: 1.3rem;
-    margin-bottom: 20px;
+  92%, 100% {
+    opacity: 0;
+    filter: blur(5px); /* Third image fades and blurs out */
   }
-  
-  .form-group {
-    margin-bottom: 20px;
+  100%, 0% {
+    background-image: url('taxi.jpg');
+    opacity: 0.4;
+    filter: blur(0px); /* Image revisible */
   }
-  
-  .form-group label {
-    font-size: 1rem;
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  /* Glass effect for input fields */
-  .form-group input {
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-    border-radius: 5px;
-    border: none;
-    background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
-    color: #fff;
-    backdrop-filter: blur(6px); /* Applies blur effect */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
-  }
-  
-  /* Placeholder color for better readability */
-  .form-group input::placeholder {
-    color: rgba(255, 255, 255, 1);
-  }
-  
-  .form-group button {
-    width: 100%;
-    padding: 12px;
-    font-size: 1.2rem;
-    background-color: gold;
-    color: black;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .form-group button:hover {
-    background-color: rgba(255, 255, 255, 0.3);;
-    color: whitesmoke;
-  }
-  
+}
+
+.home h2 {
+  font-size: 4rem;
+  font-weight: 1000;
+  top: -130px;
+  left: 5.6%;
+  transform: translate(-50%, -50%); /* Center the element */
+  color: white;
+  position: relative;
+  font-family: initial;
+}
+
+.home h3 {
+  font-size: 3.4rem;
+  font-weight: 1000;
+  top: 210px;
+  left: 25%;
+  transform: translate(-50%, -50%); /* Center the element */  
+  color: whitesmoke;
+  position: absolute;
+  font-family: initial;
+}
+
+.home h6 {
+  font-size: 3rem;
+  font-weight: 1000;
+  top: 300px;
+  left: 21%;
+  transform: translate(-50%, -50%); /* Center the element */  
+  color: whitesmoke;
+  position: absolute;
+  font-family: initial;
+}
+
+.home button {
+  position: absolute;
+  top: 400px;
+  left: 80%;
+  padding: 10px 30px;
+  font-size: 1.2rem;
+  background-color: gold;
+  color: black;
+  border: none;
+  font-weight: bold;
+  border-radius: 7px;
+}
+
+.home button:hover {
+  background-color: rgba(255, 255, 255, 0.3);;
+  background-color: rgba(255, 215, 0, 0.3); /* Goldish glass effect */
+  backdrop-filter: blur(10px); /* Apply blur for glass effect */
+  color: gold;
+  border: 1px solid gold;
+}
+
+.home .form-wrapper {
+  width: 400px;
+  height: 450px;
+  left: -19%;
+  position: relative;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+    z-index: 2; /* Ensure it appears above the overlay */
+
+}
+
+.home .form-box {
+  width: 100%;
+  padding: 40px;
+  position: absolute;
+  transition: transform 0.5s ease;
+}
+
+.home .form-box.login {
+  transform: translateX(0);
+}
+
+.home .form-wrapper.active .form-box.login {
+  transform: translateX(-100%);
+}
+
+.home .form-box.register {
+  transform: translateX(100%);
+}
+
+.home .form-wrapper.active .form-box.register {
+  transform: translateX(0);
+}
+
+.home h1 {
+  color: whitesmoke;
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.home .input-box {
+  width: 100%;
+  position: relative;
+  border-bottom: 2px solid whitesmoke;
+  margin: 30px 0;
+}
+
+.home .input-box input {
+  width: 100%;
+  height: 40px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  font-weight: 600;
+  color: gold;
+  padding: 0 35px 0 5px;
+}
+
+.home .input-box label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  font-size: 1em;
+  font-weight: 500;
+  color: whitesmoke;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.home .input-box input:focus ~ label,
+.home .input-box input:valid ~ label {
+  top: -10px;
+  font-size: 0.8em;
+}
+
+.home .icon {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: whitesmoke;
+  font-size: 1.2em;
+}
+
+.home .remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9em;
+  color: whitesmoke;
+  margin: -10px 0 20px;
+}
+
+.home .remember-forgot input {
+  accent-color: gold;
+  margin-right: 10px;
+}
+
+.home .remember-forgot a {
+  color: gold;
+  transition: 0.3s;
+}
+
+.home .remember-forgot a:hover {
+  color: darkgoldenrod;
+  text-decoration: underline;
+}
+
+.home .btn {
+  width: 80%;
+  height: 40px;
+  top: 85%;
+  left: 10%;
+  background: gold;
+  border: none;
+  border-radius: 20px;
+  font-size: 1.1em;
+  font-weight: 500;
+  color: black;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.home .btnR {
+  width: 80%;
+  height: 40px;
+  top: 87%;
+  left: 10%;
+  background: gold;
+  border: none;
+  border-radius: 20px;
+  font-size: 1.1em;
+  font-weight: 500;
+  color: black;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.home .btn:hover {
+  background: rgba(255, 215, 0, 0.3);
+  backdrop-filter: blur(10px);
+  color: gold;
+  border: 1px solid gold;
+}
+
+.home .btnR:hover {
+  background: rgba(255, 215, 0, 0.3);
+  backdrop-filter: blur(10px);
+  color: gold;
+  border: 1px solid gold;
+}
+
+/* Login Page to Register Page */
+.home .Login-register {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9em;
+  color: whitesmoke;
+}
+
+.home .Login-register p {
+  position: absolute;
+  top: 101%;
+  left: 49%;
+  transform: translateX(-70%);
+}
+
+.home .Login-register a {
+  color: gold;
+  font-weight: 500;
+  transition: 0.3s;
+  position: absolute;
+  top: 101%;
+  left: 68%;
+  transform: translateX(-50%);
+}
+
+.home .Login-register a:hover {
+  color: darkgoldenrod;
+  text-decoration: underline;
+}
+
+/* Register Page to Login Page */
+
+.home .login-register {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9em;
+  color: whitesmoke;
+}
+
+.home .login-register p {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-70%);
+}
+
+.home .login-register a {
+  color: gold;
+  font-weight: 500;
+  transition: 0.3s;
+  position: absolute;
+  top: 100%;
+  left: 69%;
+  transform: translateX(-50%);
+}
+
+.home .login-register a:hover {
+  color: darkgoldenrod;
+  text-decoration: underline;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* Blackened glass effect */
+  backdrop-filter: blur(10px);
+  z-index: 1; /* Ensure it covers other content */
+}
+
+/* CSS for the "X" close button */
+.close-btn {
+  position: fixed; /* Position fixed relative to the viewport */
+  top: 1%; /* Adjust the top position as needed */
+  right: 20px; /* Adjust the right position as needed */
+  background-color: transparent;
+  border: none;
+  color: gold;
+  font-size: 32px; /* Increase or decrease the size as needed */
+  cursor: pointer;
+  z-index: 3; /* Ensure it appears above other elements */
+}
+
+.close-btn:hover {
+  color: darkgoldenrod;
+}

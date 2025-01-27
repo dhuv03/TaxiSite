@@ -26,21 +26,116 @@
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#">Book A Ride</a></li>
                 <li><a href="#contact">Contact Us</a></li>
-                <li><a href="#">Login</a></li>
+                <li><a href="#" id="login-nav">Login</a></li>
             </ul>
         </nav>
     </header>
+
     <hr color="gold">
 
-    <!--home section-->
+    <!-- Background Overlay -->
+    <div class="overlay" style="display: none;">
+        <button class="close-btn">X</button>
+    </div>
 
+    <!--home section-->
     <section class="home" id="home">
         <h2>Your <span style="color: gold;">Dream</span> Ride,</h2>
         <h3>Just a <span style="border-bottom: 4px solid gold;">Phone Call</span> Away</h3>
         
-        <p> <b>Ready.</b>  <span style="border-bottom: 4px solid gold;">Set.</span> <span style="color: gold;">Go!</span> </p>
-        <button type="button">Book Now</button>
+        <h6> <b>Ready.</b>  <span style="border-bottom: 4px solid gold;">Set.</span> <span style="color: gold;">Go!</span> </h6>
+        <button type="button">Book Now</button>  
+
+        <div class="form-wrapper" style="display: none;">
+            <div class="form-box login">
+                <h1>Login</h1>
+                <form action="#">
+                    <div class="input-box">
+                        <span class="icon"><i class='bx bx-envelope'></i></span>
+                        <input type="text" required>
+                        <label>Email</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><i class='bx bx-lock-alt'></i></span>
+                        <input type="password" required>
+                        <label>Password</label>
+                    </div>
+                    <div class="remember-forgot">
+                        <label><input type="checkbox"> Remember me</label>
+                        <a href="#">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="btn">Login</button>
+                    <div class="Login-register">
+                        <p>Don't have an account? </p>
+                        <a href="#" class="register-link">Register</a>
+                    </div>
+                </form>
+            </div>
+            <div class="form-box register">
+                <h1>Register</h1>
+                <form action="#">
+                    <div class="input-box">
+                        <span class="icon"><i class='bx bx-user-circle'></i></span>
+                        <input type="text" required>
+                        <label>Username</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><i class='bx bx-envelope'></i></span>
+                        <input type="text" required>
+                        <label>Email</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><i class='bx bx-lock-alt'></i></span>
+                        <input type="password" required>
+                        <label>Password</label>
+                    </div>
+                    <div class="remember-forgot">
+                        <label><input type="checkbox"> The terms & conditions</label>
+                    </div>
+                    <button type="submit" class="btnR">Register</button>
+                    <div class="login-register">
+                        <p>Already have an account?</p> 
+                        <a href="#" class="login-link">Login</a>
+                    </div>
+                </form>
+            </div>
+        </div>
     </section>
+    <script>
+        const formWrapper = document.querySelector('.form-wrapper');
+        const registerLink = document.querySelector('.register-link');
+        const loginLink = document.querySelector('.login-link');
+        const loginNav = document.getElementById('login-nav');
+        const overlay = document.querySelector('.overlay');
+        const closeBtn = document.querySelector('.close-btn');
+    
+        // Show the form wrapper and overlay when clicking on the "Login" link in the navbar
+        loginNav.addEventListener('click', (e) => {
+            e.preventDefault();
+            formWrapper.style.display = 'block';
+            overlay.style.display = 'block';
+            document.body.classList.add('no-scroll'); // Prevent scrolling
+        });
+    
+        // Toggle forms between login and register
+        registerLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            formWrapper.classList.add('active');
+        });
+    
+        loginLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            formWrapper.classList.remove('active');
+        });
+    
+        // Close the form wrapper and overlay when clicking the "X" button
+        closeBtn.addEventListener('click', () => {
+            formWrapper.style.display = 'none';
+            overlay.style.display = 'none';
+            document.body.classList.remove('no-scroll'); // Re-enable scrolling
+        });
+    </script>
+       
 
     <!--sec01 section-->
 
