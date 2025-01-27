@@ -7,10 +7,10 @@
 
     <!-- font links -->
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css ">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/scrollreveal"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     <script src="index.js"></script>
 
     <title>Index</title>
@@ -28,6 +28,11 @@
                 <li><a href="#contact">Contact Us</a></li>
                 <li><a href="#" id="login-nav">Login</a></li>
             </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </nav>
     </header>
 
@@ -101,38 +106,64 @@
             </div>
         </div>
     </section>
+
     <script>
+        const hamburger = document.querySelector('.hamburger');
+        const menu = document.querySelector('.menu');
+        const menuLinks = document.querySelectorAll('.menu li a');
         const formWrapper = document.querySelector('.form-wrapper');
         const registerLink = document.querySelector('.register-link');
         const loginLink = document.querySelector('.login-link');
         const loginNav = document.getElementById('login-nav');
         const overlay = document.querySelector('.overlay');
         const closeBtn = document.querySelector('.close-btn');
-    
+
+        function toggleNoScroll() {
+            if (formWrapper.style.display === 'block' || menu.classList.contains('active')) {
+                document.body.classList.add('no-scroll');
+            } else {
+                document.body.classList.remove('no-scroll');
+            }
+        }
+
+        hamburger.addEventListener('click', () => {
+            menu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            toggleNoScroll();
+        });
+
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('active');
+                hamburger.classList.remove('active');
+                document.body.classList.remove('no-scroll'); // Re-enable scrolling
+            });
+        });
+
         // Show the form wrapper and overlay when clicking on the "Login" link in the navbar
         loginNav.addEventListener('click', (e) => {
             e.preventDefault();
             formWrapper.style.display = 'block';
             overlay.style.display = 'block';
-            document.body.classList.add('no-scroll'); // Prevent scrolling
+            toggleNoScroll();
         });
-    
+
         // Toggle forms between login and register
         registerLink.addEventListener('click', (e) => {
             e.preventDefault();
             formWrapper.classList.add('active');
         });
-    
+
         loginLink.addEventListener('click', (e) => {
             e.preventDefault();
             formWrapper.classList.remove('active');
         });
-    
+
         // Close the form wrapper and overlay when clicking the "X" button
         closeBtn.addEventListener('click', () => {
             formWrapper.style.display = 'none';
             overlay.style.display = 'none';
-            document.body.classList.remove('no-scroll'); // Re-enable scrolling
+            toggleNoScroll();
         });
     </script>
        
