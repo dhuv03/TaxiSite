@@ -128,16 +128,27 @@ header nav .menu li a:focus::after {
   transition: all 0.3s ease;
 }
 
-.hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(10px, 5px);
-}
+@media (max-width: 768px) {
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 5px);
+  }
 
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
 
-.hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(10px, -5px);
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(10px, -5px);
+  }
+
+  header {
+    width: 120%;
+  }
+
+  .about-section{
+    position: relative;
+    left:-10%
+  }
 }
 
 @media (max-width: 772px) {
@@ -300,6 +311,14 @@ header nav .menu li a:focus::after {
   border: 1px solid gold;
 }
 
+
+@media (max-width: 768px) {
+  .home {
+    height: 50vh; /* Full height of the viewport */
+    width: 120%; /* Full width of the viewport */;
+
+  }
+}
 /* Responsive styling for h2 */
 @media (max-width: 1425px) {
   .home h2 {
@@ -331,8 +350,17 @@ header nav .menu li a:focus::after {
 @media (max-width: 600px) {
   .home h2 {
       font-size: 2rem;
-      top: -140px; /* Adjust top position */
-      left: 3%; /* Adjust left position */
+      top: -154px; /* Adjust top position */
+      left: 5%; /* Adjust left position */
+      transform: translate(-50%, -50%);
+  }
+}
+
+@media (max-width: 475px) {
+  .home h2 {
+      font-size: 1.5rem;
+      top: -152px; /* Adjust top position */
+      left: 12%; /* Adjust left position */
       transform: translate(-50%, -50%);
   }
 }
@@ -374,6 +402,15 @@ header nav .menu li a:focus::after {
   }
 }
 
+@media (max-width: 475px) {
+  .home h3 {
+      font-size: 1.5rem;
+      top: 210px; /* Adjust top position */
+      left: 42%; /* Adjust left position */
+      transform: translate(-50%, -50%);
+  }
+}
+
 /* Responsive styling for h6 */
 @media (max-width: 1425px) {
   .home h6 {
@@ -405,6 +442,15 @@ header nav .menu li a:focus::after {
 @media (max-width: 600px) {
   .home h6 {
       font-size: 2rem;
+      top: 280px; /* Adjust top position */
+      left: 38%; /* Adjust left position */
+      transform: translate(-50%, -50%);
+  }
+}
+
+@media (max-width: 475px) {
+  .home h6 {
+      font-size: 1.5rem;
       top: 280px; /* Adjust top position */
       left: 38%; /* Adjust left position */
       transform: translate(-50%, -50%);
@@ -847,17 +893,45 @@ header nav .menu li a:focus::after {
    }
  }
 
+ @media (max-width: 875px) {
+  .main-title {
+    font-size: 2.5em;
+   }
+ }
+
+ @media (max-width: 600px) {
+  .main-title {
+    font-size: 2em;
+   }
+ }
+
 @media (max-width: 875px) {
   .content .image {
-    width: 800px;
-    left: 21%;
+    width: 665px;
+    left: 24%;
   }
 }
 @media (max-width: 875px) {
   .content .text-box {
     position: relative;
+    width: 700px;
     left: -7%;
     top: 204px;
+  }
+}
+
+@media (max-width: 600px) {
+  .content .image {
+      width: 375px;
+      left: 26%;
+  }
+}
+
+@media (max-width: 600px) {
+  .content .text-box {
+      position: relative;
+      left: -14%;
+      top: 216px;
   }
 }
 
@@ -945,7 +1019,7 @@ header nav .menu li a:focus::after {
 
  @media (max-width: 875px) {
   .contnt .image {
-    left: -12%;
+    left: -28%;
     width: 400px;
     height: 392px;
   }
@@ -954,7 +1028,7 @@ header nav .menu li a:focus::after {
   .contnt .text-box {
     position: relative;
     left: 5%;
-    top: 120px;
+    top: 147px;
   }
 }
 
@@ -1082,6 +1156,8 @@ header nav .menu li a:focus::after {
   text-decoration: underline;
 }
 
+
+
 @media (max-width: 1088px) {
   .about-section .card1{
     position: relative;
@@ -1163,10 +1239,10 @@ header nav .menu li a:focus::after {
 
 @keyframes autoRunTaxi {
   from {
-      transform: perspective(3000px) rotateX(-10deg) rotateY(0deg);
+    transform: perspective(3000px) rotateX(-10deg) rotateY(0deg);
   }
   to {
-      transform: perspective(3000px) rotateX(-10deg) rotateY(360deg);
+    transform: perspective(3000px) rotateX(-10deg) rotateY(360deg);
   }
 }
 
@@ -1174,8 +1250,8 @@ header nav .menu li a:focus::after {
   position: absolute;
   inset: 0 0 0 0;
   transform: 
-      rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
-      translateZ(550px);
+    rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+    translateZ(550px);
 }
 
 .taxi-model .slider .item img {
@@ -1184,37 +1260,175 @@ header nav .menu li a:focus::after {
   object-fit: cover;
 }
 
-@media screen and (max-width: 1069px) {
-  .taxi-model .slider {
-      width: 190px;
-      height: 200px;
-      left: calc(50% - 95px);
-      animation: autoRunTaxiSmall 20s linear infinite;
+/* Media Query for Smaller Screen Sizes */
+@media screen and (max-width: 1064px) {
+  .taxi-model{
+    height: 58vh;
   }
+  }
+
+@media screen and (max-width: 1064px) {
+  .taxi-model .slider {
+    width: 150px;
+    height: 200px;
+    top: 21%;
+    left: calc(50% - 75px);
+    transform: perspective(800px);
+  }
+
   .taxi-model .slider .item {
-      transform: 
-          rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
-          translateZ(300px);
+    transform: 
+      rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+      translateZ(400px);
+  }
+
+  .taxi-model .slider .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 
-@keyframes autoRunTaxiSmall {
-  from {
-      transform: perspective(3000px) rotateX(-10deg) rotateY(0deg) translateX(0);
+@media screen and (max-width: 980px) {
+  .taxi-model .slider {
+    width: 150px;
+    height: 200px;
+    top: 22%;
+    left: 39%;
+    transform: translate(-50%, -50%) perspective(800px);
   }
-  to {
-      transform: perspective(3000px) rotateX(-10deg) rotateY(360deg) translateX(0);
+
+  .taxi-model .slider .item {
+    transform: 
+      rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+      translateZ(400px);
+  }
+
+  .taxi-model .slider .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@media screen and (max-width: 748px) {
+  .taxi-model .slider {
+    width: 130px;
+    height: 180px;
+    top: 22%;
+    left: 33%;
+    transform: translate(-50%, -50%) perspective(600px);
+  }
+
+  .taxi-model .slider .item {
+    transform: 
+      rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 3deg))
+      translateZ(400px);
+  }
+
+  .taxi-model .slider .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@media screen and (max-width: 628px) {
+  .taxi-model .slider {
+    width: 100px;
+    height: 150px;
+    top: 22%;
+    left: 33%;
+    transform: translate(-50%, -50%) perspective(400px);
+  }
+
+  .taxi-model .slider .item {
+    transform: 
+      rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 3deg))
+      translateZ(400px);
+  }
+
+  .taxi-model .slider .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@media screen and (max-width: 559px) {
+.taxi-model{
+  height: 46vh;
+}
+  .taxi-model .slider {
+      width: 100px;
+      height: 150px;
+      top: 22%;
+      left: 15%;
+      transform: translate(-50%, -50%) perspective(400px);
+  }
+  
+.taxi-model .slider .item {
+  transform: 
+    rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 8deg))
+    translateZ(400px);
+}
+
+.taxi-model .slider .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  }
+}
+
+@media screen and (max-width: 468px) {
+  .taxi-model .slider {
+      width: 100px;
+      height: 150px;
+      top: 22%;
+      left: -3%;
+      transform: translate(-50%, -50%) perspective(400px);
+  }
+
+.taxi-model .slider .item {
+  transform: 
+    rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 8deg))
+    translateZ(400px);
+}
+
+.taxi-model .slider .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  }
+}
+
+@media screen and (max-width: 398px) {
+  .taxi-model .slider {
+      width: 100px;
+      height: 150px;
+      top: 22%;
+      left: -22%;
+      transform: translate(-50%, -50%) perspective(400px);
+  }
+
+.taxi-model .slider .item {
+  transform: 
+    rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 8deg))
+    translateZ(400px);
+}
+
+.taxi-model .slider .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   }
 }
 
 
 /* Footer Section */
 
-
-/* Add your existing CSS code here */
-
 .footer-distributed {
-  background: #292c2f;
+  background: #ffffff;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
   width: 100%;
@@ -1241,6 +1455,35 @@ header nav .menu li a:focus::after {
 
 .footer-distributed .footer-center {
   width: 35%;
+  position: relative;
+}
+
+.footer-distributed .footer-center i,
+.footer-distributed .footer-center p {
+  display: inline-block;
+  margin: 0 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-distributed .footer-center .element {
+  position: relative;
+  z-index: 1;
+}
+
+.footer-distributed .footer-center .circle {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: #33383b;
+  border-radius: 50%;
+  z-index: 0;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.footer-distributed .footer-center .element:hover ~ .circle {
+  background-color: gold;
+  transform: scale(1.1);
 }
 
 /* Footer right */
@@ -1259,7 +1502,7 @@ header nav .menu li a:focus::after {
 
 .footer-distributed .footer-company-about span {
   display: block;
-  color: #ffffff;
+  color: #292c2f;
   font-size: 14px;
   font-weight: bold;
   margin-bottom: 20px;
@@ -1286,6 +1529,11 @@ header nav .menu li a:focus::after {
   margin-bottom: 5px;
 }
 
+.footer-distributed .footer-icons a:hover {
+  background-color: gold;
+  color: #292c2f;
+}
+
 @media (max-width: 880px) {
   .footer-distributed {
     font: bold 14px sans-serif;
@@ -1297,6 +1545,17 @@ header nav .menu li a:focus::after {
     display: block;
     width: 100%;
     text-align: center;
+    margin: 10px 0;
+  }
+
+  .footer-distributed .footer-center .circle {
+    width: 80px;
+    height: 80px;
+  }
+
+  .footer-distributed .footer-center i,
+  .footer-distributed .footer-center p {
+    display: block;
     margin: 10px 0;
   }
 
@@ -1315,11 +1574,22 @@ header nav .menu li a:focus::after {
     padding-top: 20px;
     padding-left: 0;
   }
-  
+
   .footer-distributed {
     padding: 10px;
   }
+
+  .footer-distributed .footer-center .circle {
+    width: 60px;
+    height: 60px;
+  }
+
+  .footer-distributed .footer-center i,
+  .footer-distributed .footer-center p {
+    margin: 5px 0;
+  }
 }
+
 .gotopbtn {
   position: fixed;
   bottom: 20px;
@@ -1344,4 +1614,14 @@ header nav .menu li a:focus::after {
 
 .gotopbtn i {
   font-size: 24px;
+}
+
+/* Add hover effect to links */
+.footer-distributed a {
+  color: black;
+  text-decoration: none;
+}
+
+.footer-distributed a:hover {
+  color: gold;
 }
