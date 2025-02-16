@@ -5,9 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Form</title>
     <link rel="stylesheet" href="contactstyle.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css ">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   </head>
   <body>
+    <header id="header">
+      <div class="logo">
+        Logo
+      </div>
+      <nav>
+        <ul class="menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="AboutUs.html">About Us</a></li>
+          <li><a href="RideBook.html">Book A Ride</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+    </header>
+
+    <hr color="gold" class="gold-line">
+
     <div class="container">
       <span class="big-circle"></span>
       <img src="img/shape.png" class="square" alt="" />
@@ -86,5 +107,32 @@
     </div>
 
     <script src="app.js"></script>
+    <script>
+      const hamburger = document.querySelector('.hamburger');
+      const menu = document.querySelector('.menu');
+      const menuLinks = document.querySelectorAll('.menu li a');
+
+      function toggleNoScroll() {
+        if (menu.classList.contains('active')) {
+          document.body.classList.add('no-scroll');
+        } else {
+          document.body.classList.remove('no-scroll');
+        }
+      }
+
+      hamburger.addEventListener('click', () => {
+        menu.classList.toggle('active');
+        hamburger.classList.toggle('active');
+        toggleNoScroll();
+      });
+
+      menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          menu.classList.remove('active');
+          hamburger.classList.remove('active');
+          document.body.classList.remove('no-scroll'); // Re-enable scrolling
+        });
+      });
+    </script>
   </body>
 </html>

@@ -12,6 +12,161 @@ textarea {
   font-family: "Poppins", sans-serif;
 }
 
+body {
+  background-color: black;
+  overflow-x: hidden; /* Ensure no horizontal scroll */
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: 80px;
+  padding: 0 5%;
+  color: #000011;
+  font-size: 18px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+header .logo {
+  text-transform: uppercase;
+  color: whitesmoke;
+  font-size: 2.5rem;
+  margin-right: auto;
+  font-weight: 700;
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+}
+
+header nav .menu {
+  display: flex;
+  align-items: center;
+}
+
+header nav .menu li a {
+  position: relative;
+  color: whitesmoke;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-left: 40px;
+  border-radius: 0.4rem;
+  transition: color 0.4s ease;
+  text-decoration: none; /* Remove underline */
+}
+
+header nav .menu li a:hover,
+header nav .menu li a:focus {
+  color: gold;
+}
+
+header nav .menu li a::after {
+  content: '';
+  height: 3px;
+  width: 100%;
+  background: whitesmoke;
+  position: absolute;
+  bottom: -8px;
+  left: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+header nav .menu li a:hover::after,
+header nav .menu li a:focus::after {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  width: 30px;
+  height: 25px;
+  justify-content: space-between;
+}
+
+.hamburger span {
+  height: 4px;
+  background: gold;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 5px);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(10px, -5px);
+  }
+
+  header {
+    width: 100%; /* Ensure header fits within viewport */
+  }
+}
+
+@media (max-width: 772px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .menu {
+    width: 0;
+    overflow: hidden;
+    flex-direction: column;
+    height: calc(100vh - 80px);
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 80px;
+    right: 0;
+    transition: width 0.5s ease;
+    z-index: 999;
+  }
+
+  .menu.active {
+    width: 70%;
+  }
+
+  .menu li {
+    text-align: center;
+    margin: 15px 0;
+  }
+
+  .menu li a {
+    font-size: 1.5rem;
+  }
+
+  .menu.active::before {
+    content: "";
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 50%;
+    height: calc(100vh - 80px);
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    z-index: -1;
+  }
+
+  .menu.active ~ .home {
+    margin-top: 80px;
+  }
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
 .container {
   position: relative;
   width: 100%;
