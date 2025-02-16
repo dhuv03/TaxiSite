@@ -27,6 +27,7 @@ header {
   color: #000011;
   font-size: 18px;
   background: rgba(0, 0, 0, 0.3);
+  z-index: 1000; /* Ensure header is on top */
 }
 
 header .logo {
@@ -45,6 +46,7 @@ header nav {
 header nav .menu {
   display: flex;
   align-items: center;
+  z-index: 1001; /* Ensure menu is on top */
 }
 
 header nav .menu li a {
@@ -88,6 +90,7 @@ header nav .menu li a:focus::after {
   width: 30px;
   height: 25px;
   justify-content: space-between;
+  z-index: 1002; /* Ensure hamburger is on top */
 }
 
 .hamburger span {
@@ -130,7 +133,7 @@ header nav .menu li a:focus::after {
     top: 80px;
     right: 0;
     transition: width 0.5s ease;
-    z-index: 999;
+    z-index: 1001; /* Ensure menu is on top */
   }
 
   .menu.active {
