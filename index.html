@@ -244,22 +244,25 @@
     </section>
     <h3 class="main-title" id="Models"> <span style="border-bottom: 4px solid gold;">Taxi Models</span> </h3>
 
-    <!--taxi-model section-->
-    <section class="taxi-model">
+   <!--taxi-model section-->
+<section class="taxi-model">
+  <div class="model-wrapper">
+    <model-viewer src="CAR Model.glb" 
+                  alt="Taxi Model"
+                  auto-rotate 
+                  camera-controls 
+                  disable-zoom
+                  shadow-intensity="1"
+                  exposure="1.2"
+                  style="background: transparent;">
+    </model-viewer>
+  </div>
+</section>
 
-        <div class="slider" style="--quantity: 10">
-            <div class="item" style="--position: 1"><img src="1.jpg" alt=""></div>
-            <div class="item" style="--position: 2"><img src="2.jpg" alt=""></div>
-            <div class="item" style="--position: 3"><img src="3.jpg" alt=""></div>
-            <div class="item" style="--position: 4"><img src="2.jpg" alt=""></div>
-            <div class="item" style="--position: 5"><img src="1.jpg" alt=""></div>
-            <div class="item" style="--position: 6"><img src="3.jpg" alt=""></div>
-            <div class="item" style="--position: 7"><img src="1.jpg" alt=""></div>
-            <div class="item" style="--position: 8"><img src="2.jpg" alt=""></div>
-            <div class="item" style="--position: 9"><img src="3.jpg" alt=""></div>
-            <div class="item" style="--position: 10"><img src="1.jpg" alt=""></div>
-        </div>
-    </section>
+
+<!-- Load model-viewer script -->
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
 
 
     <!-- footer part -->

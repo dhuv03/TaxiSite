@@ -24,6 +24,7 @@ header {
   color: #000011;
   font-size: 18px;
   background: rgba(0, 0, 0, 0.3); 
+  overflow: hidden;
 }
 
 header .logo {
@@ -114,11 +115,13 @@ header nav .menu li a:focus::after {
 
 .hamburger {
   display: none;
+  position: relative;
   flex-direction: column;
   cursor: pointer;
   width: 30px;
   height: 25px;
   justify-content: space-between;
+  left :-132px;
 }
 
 .hamburger span {
@@ -220,6 +223,8 @@ header nav .menu li a:focus::after {
   background-position: center;
   background-repeat: no-repeat;
   animation: taxiCycle 9s infinite; /* Apply the animation */
+  overflow: hidden;
+
 }
 
 @keyframes taxiCycle {
@@ -802,6 +807,8 @@ header nav .menu li a:focus::after {
   padding: 80px 100px;
   color: #fff;
   height: 100vh;
+  overflow: hidden;
+
 }
 
 .container {
@@ -946,6 +953,7 @@ header nav .menu li a:focus::after {
   padding: 80px 100px;
   color: #fff;
   height: 100vh;
+  overflow: hidden;
 }
 
 .containr {
@@ -1055,6 +1063,7 @@ header nav .menu li a:focus::after {
   border-radius: 10px; /* Optional rounded edges */
   margin: 20px auto; /* Center the section horizontally and add spacing */
   width: 90%; /* Adjust width to fit the design */
+  overflow: hidden;
 }
 
 .about-section h2 {
@@ -1225,221 +1234,40 @@ header nav .menu li a:focus::after {
 
 
 /* Taxi Model Section */
-
 .taxi-model {
   width: 100%;
-  height: 80vh;
+  height: 85vh;
   background-color: whitesmoke;
   text-align: center;
-  position: relative; 
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.taxi-model h2 {
-  font-size: 2rem;
-  color: gold;
-  margin-bottom: 20px;
-  position: absolute;
-  left: 39%;
-}
-
-.taxi-model .slider {
-  position: absolute;
-  width: 200px;
-  height: 250px;
-  top: 20%;
-  left: calc(50% - 100px);
-  transform-style: preserve-3d;
-  transform: perspective(1000px);
-  animation: autoRunTaxi 20s linear infinite;
-  z-index: 15;
-}
-
-@keyframes autoRunTaxi {
-  from {
-    transform: perspective(3000px) rotateX(-10deg) rotateY(0deg);
-  }
-  to {
-    transform: perspective(3000px) rotateX(-10deg) rotateY(360deg);
-  }
-}
-
-.taxi-model .slider .item {
-  position: absolute;
-  inset: 0 0 0 0;
-  transform: 
-    rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
-    translateZ(550px);
-}
-
-.taxi-model .slider .item img {
+.model-wrapper {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-width: 800px;
+  height: 80%;
 }
 
-/* Media Query for Smaller Screen Sizes */
-@media screen and (max-width: 1064px) {
-  .taxi-model{
-    height: 58vh;
-  }
-  }
-
-@media screen and (max-width: 1064px) {
-  .taxi-model .slider {
-    width: 150px;
-    height: 200px;
-    top: 21%;
-    left: calc(50% - 75px);
-    transform: perspective(800px);
-  }
-
-  .taxi-model .slider .item {
-    transform: 
-      rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
-      translateZ(400px);
-  }
-
-  .taxi-model .slider .item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-}
-
-@media screen and (max-width: 980px) {
-  .taxi-model .slider {
-    width: 150px;
-    height: 200px;
-    top: 22%;
-    left: 39%;
-    transform: translate(-50%, -50%) perspective(800px);
-  }
-
-  .taxi-model .slider .item {
-    transform: 
-      rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
-      translateZ(400px);
-  }
-
-  .taxi-model .slider .item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-}
-
-@media screen and (max-width: 748px) {
-  .taxi-model .slider {
-    width: 130px;
-    height: 180px;
-    top: 22%;
-    left: 33%;
-    transform: translate(-50%, -50%) perspective(600px);
-  }
-
-  .taxi-model .slider .item {
-    transform: 
-      rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 3deg))
-      translateZ(400px);
-  }
-
-  .taxi-model .slider .item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-}
-
-@media screen and (max-width: 628px) {
-  .taxi-model .slider {
-    width: 100px;
-    height: 150px;
-    top: 22%;
-    left: 33%;
-    transform: translate(-50%, -50%) perspective(400px);
-  }
-
-  .taxi-model .slider .item {
-    transform: 
-      rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 3deg))
-      translateZ(400px);
-  }
-
-  .taxi-model .slider .item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-}
-
-@media screen and (max-width: 559px) {
-.taxi-model{
-  height: 46vh;
-}
-  .taxi-model .slider {
-      width: 100px;
-      height: 150px;
-      top: 22%;
-      left: 15%;
-      transform: translate(-50%, -50%) perspective(400px);
-  }
-  
-.taxi-model .slider .item {
-  transform: 
-    rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 8deg))
-    translateZ(400px);
-}
-
-.taxi-model .slider .item img {
+.taxi-model model-viewer {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: 150%;
+  bottom: 150px;
+  background: transparent;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .model-wrapper {
+    width: 95%;
+    height: 60%;
   }
 }
 
-@media screen and (max-width: 468px) {
-  .taxi-model .slider {
-      width: 100px;
-      height: 150px;
-      top: 22%;
-      left: -3%;
-      transform: translate(-50%, -50%) perspective(400px);
-  }
-
-.taxi-model .slider .item {
-  transform: 
-    rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 8deg))
-    translateZ(400px);
-}
-
-.taxi-model .slider .item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  }
-}
-
-@media screen and (max-width: 398px) {
-  .taxi-model .slider {
-      width: 100px;
-      height: 150px;
-      top: 22%;
-      left: -22%;
-      transform: translate(-50%, -50%) perspective(400px);
-  }
-
-.taxi-model .slider .item {
-  transform: 
-    rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 8deg))
-    translateZ(400px);
-}
-
-.taxi-model .slider .item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  }
-}
 
 
 /* Footer Section */
@@ -1453,6 +1281,7 @@ header nav .menu li a:focus::after {
   font: bold 16px sans-serif;
   padding: 55px 50px;
   margin-top: 80px;
+  overflow: hidden;
 }
 
 .footer-distributed .footer-left,
