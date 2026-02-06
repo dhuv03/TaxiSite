@@ -286,7 +286,7 @@ header nav .menu li a:focus::after {
   background-position: center;
   background-repeat: no-repeat;
   animation: taxiCycle 9s infinite;
-  z-index: -1;
+  z-index: 0;
 }
 
 @keyframes taxiCycle {
@@ -950,7 +950,7 @@ header nav .menu li a:focus::after {
   width: 100%;
   max-width: 240px;
   height: 200px;
-  object-fit: contain;
+  object-fit: cover;
   margin: 0 auto;
   display: block;
 }
